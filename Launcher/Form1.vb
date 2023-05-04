@@ -441,7 +441,7 @@ Public Class Login
                 'End If
 
                 If logContent.Contains("Initializing Server") Then
-                    If Not SC("tasklist | findstr /i SocketServer").Contains("Console") Then
+                    If Not SC("tasklist | findstr /i SocketServer.exe").Contains("Console") Then
 
                         Log("Socketserver status: offline !!!")
                         TextStatus.Text = "未启动"
@@ -549,15 +549,6 @@ Public Class Login
         Shell("cmd /c start guide/getcookie.html"， vbHide)
     End Sub
 
-    Private Sub OptionWeb_CheckedChanged_1(sender As Object, e As EventArgs) Handles OptionWeb.CheckedChanged
-
-    End Sub
-
-
-
-    Private Sub LaunchUE_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub Save_Click(sender As Object, e As EventArgs) Handles Save.Click
         SaveConfig()
@@ -566,19 +557,15 @@ Public Class Login
 
     Private Sub TextOpenAICookie_Click(sender As Object, e As EventArgs) Handles TextOpenAICookie.TextChanged
         cookie = " --accessToken " & TextOpenAICookie.Text
-
         UpdateCommand()
     End Sub
 
     Private Sub TextOpenAIProxy_Click(sender As Object, e As EventArgs) Handles TextProxServer.TextChanged
         proxy = " --proxy " & TextProxServer.Text
-
         UpdateCommand()
     End Sub
 
-    Private Sub OptionCookie_CheckedChanged_2(sender As Object, e As EventArgs) Handles OptionCookie.CheckedChanged
 
-    End Sub
 
 
     Private Sub OptionCookie_CheckedChanged_1(sender As Object, e As EventArgs) Handles OptionCookie.Click

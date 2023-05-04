@@ -18,8 +18,6 @@
     End Sub
 
     Private Sub ClientDetector_Tick(sender As Object, e As EventArgs) Handles ClientDetector.Tick
-
-
         If Not Login.TextStatus.Text = "服务器已启动！点击此处选择客户端" Then
             ClientDetector.Enabled = False
             Close()
