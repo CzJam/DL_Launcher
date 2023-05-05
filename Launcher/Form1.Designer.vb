@@ -688,7 +688,7 @@ Partial Class Login
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1111, 1045)
+        Me.ClientSize = New System.Drawing.Size(1117, 1074)
         Me.Controls.Add(Me.PortBox)
         Me.Controls.Add(Me.IPBox)
         Me.Controls.Add(Me.Editor)

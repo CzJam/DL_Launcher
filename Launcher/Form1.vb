@@ -1,6 +1,8 @@
 ﻿Imports System.Threading
 Imports System.IO
 Imports System.Text
+Imports System.Net
+Imports System.Net.Sockets
 
 Public Class Login
     Dim model(), characterName() As String
@@ -12,6 +14,14 @@ Public Class Login
     Dim modelFile = Application.StartupPath & "/Config/model.ini"
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim hostName As String = Dns.GetHostName()
+        Dim ipList As New List(Of String)
+
+        For Each ipAddress As IPAddress In Dns.GetHostEntry(hostName).AddressList
+            If ipAddress.AddressFamily = AddressFamily.InterNetwork Then ' IPv4 地址
+                MsgBox(ipAddress.ToString())
+            End If
+        Next
         Shell("cmd /c del loglauncher.log")
         actionBarText = " 《数字生命》" & ReadConfig("uiconfig", "version", configFile)
         Thread.Sleep(500)
