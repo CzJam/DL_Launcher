@@ -1,4 +1,6 @@
-﻿Imports MaterialSkin.Controls
+﻿Imports System.Net
+Imports System.Net.Sockets
+Imports MaterialSkin.Controls
 
 Module ProfileExecutor
 
@@ -35,5 +37,16 @@ Module ProfileExecutor
     Public Sub SnackBar(form As Form, content As String, Optional duration As Integer = 3000)
         Dim sb As New MaterialSnackBar(content, duration)
         sb.Show(form)
+    End Sub
+
+    Public Sub GetIpAddress()
+        Dim hostName As String = Dns.GetHostName()
+        Dim ipList As New List(Of String)
+        For Each ipAddress As IPAddress In Dns.GetHostEntry(hostName).AddressList
+            If ipAddress.AddressFamily = AddressFamily.InterNetwork Then
+                ipList.Add(ipAddress.ToString())
+            End If
+        Next
+        IO.File.WriteAllText("ipconfig.txt", String.Join(",", ipList))
     End Sub
 End Module
