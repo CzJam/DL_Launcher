@@ -53,6 +53,7 @@ Partial Class Login
         Me.Editor = New MaterialSkin.Controls.MaterialButton()
         Me.IPBox = New System.Windows.Forms.TextBox()
         Me.PortBox = New System.Windows.Forms.TextBox()
+        Me.ComboIPSelect = New MaterialSkin.Controls.MaterialComboBox()
         Me.GroupGPTVersion.SuspendLayout()
         Me.GroupLogin.SuspendLayout()
         Me.SuspendLayout()
@@ -535,12 +536,12 @@ Partial Class Login
         Me.Launch.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Launch.HighEmphasis = True
         Me.Launch.Icon = Nothing
-        Me.Launch.Location = New System.Drawing.Point(24, 552)
+        Me.Launch.Location = New System.Drawing.Point(24, 608)
         Me.Launch.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Launch.MouseState = MaterialSkin.MouseState.HOVER
         Me.Launch.Name = "Launch"
         Me.Launch.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.Launch.Size = New System.Drawing.Size(152, 40)
+        Me.Launch.Size = New System.Drawing.Size(104, 40)
         Me.Launch.TabIndex = 15
         Me.Launch.Text = "启动服务器"
         Me.ToolTip1.SetToolTip(Me.Launch, "启动服务")
@@ -605,14 +606,14 @@ Partial Class Login
         Me.Save.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Save.HighEmphasis = True
         Me.Save.Icon = Nothing
-        Me.Save.Location = New System.Drawing.Point(328, 552)
+        Me.Save.Location = New System.Drawing.Point(24, 560)
         Me.Save.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Save.MouseState = MaterialSkin.MouseState.HOVER
         Me.Save.Name = "Save"
         Me.Save.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.Save.Size = New System.Drawing.Size(120, 40)
+        Me.Save.Size = New System.Drawing.Size(104, 32)
         Me.Save.TabIndex = 31
-        Me.Save.Text = "保存选项配置"
+        Me.Save.Text = "保存配置"
         Me.ToolTip1.SetToolTip(Me.Save, "保存所有配置项")
         Me.Save.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
         Me.Save.UseAccentColor = False
@@ -623,9 +624,9 @@ Partial Class Login
         Me.TextStatus.BackColor = System.Drawing.Color.Red
         Me.TextStatus.Font = New System.Drawing.Font("微软雅黑", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TextStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TextStatus.Location = New System.Drawing.Point(24, 608)
+        Me.TextStatus.Location = New System.Drawing.Point(136, 608)
         Me.TextStatus.Name = "TextStatus"
-        Me.TextStatus.Size = New System.Drawing.Size(336, 40)
+        Me.TextStatus.Size = New System.Drawing.Size(224, 40)
         Me.TextStatus.TabIndex = 33
         Me.TextStatus.Text = "未启动"
         Me.TextStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -634,7 +635,7 @@ Partial Class Login
         '
         Me.CheckLog.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.CheckLog.Depth = 0
-        Me.CheckLog.Location = New System.Drawing.Point(368, 608)
+        Me.CheckLog.Location = New System.Drawing.Point(368, 610)
         Me.CheckLog.Margin = New System.Windows.Forms.Padding(0)
         Me.CheckLog.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.CheckLog.MouseState = MaterialSkin.MouseState.HOVER
@@ -657,12 +658,12 @@ Partial Class Login
         Me.Editor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Editor.HighEmphasis = True
         Me.Editor.Icon = Nothing
-        Me.Editor.Location = New System.Drawing.Point(184, 552)
+        Me.Editor.Location = New System.Drawing.Point(136, 560)
         Me.Editor.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Editor.MouseState = MaterialSkin.MouseState.HOVER
         Me.Editor.Name = "Editor"
         Me.Editor.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.Editor.Size = New System.Drawing.Size(136, 40)
+        Me.Editor.Size = New System.Drawing.Size(112, 32)
         Me.Editor.TabIndex = 39
         Me.Editor.Text = "编辑提示词"
         Me.Editor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
@@ -683,12 +684,37 @@ Partial Class Login
         Me.PortBox.Size = New System.Drawing.Size(128, 21)
         Me.PortBox.TabIndex = 42
         '
+        'ComboIPSelect
+        '
+        Me.ComboIPSelect.AutoResize = False
+        Me.ComboIPSelect.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ComboIPSelect.Depth = 0
+        Me.ComboIPSelect.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.ComboIPSelect.DropDownHeight = 118
+        Me.ComboIPSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboIPSelect.DropDownWidth = 121
+        Me.ComboIPSelect.Font = New System.Drawing.Font("微软雅黑", 10.0!)
+        Me.ComboIPSelect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ComboIPSelect.FormattingEnabled = True
+        Me.ComboIPSelect.Hint = "本机IP"
+        Me.ComboIPSelect.IntegralHeight = False
+        Me.ComboIPSelect.ItemHeight = 29
+        Me.ComboIPSelect.Location = New System.Drawing.Point(256, 560)
+        Me.ComboIPSelect.MaxDropDownItems = 4
+        Me.ComboIPSelect.MouseState = MaterialSkin.MouseState.OUT
+        Me.ComboIPSelect.Name = "ComboIPSelect"
+        Me.ComboIPSelect.Size = New System.Drawing.Size(192, 35)
+        Me.ComboIPSelect.StartIndex = 0
+        Me.ComboIPSelect.TabIndex = 43
+        Me.ComboIPSelect.UseTallSize = False
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1117, 1074)
+        Me.Controls.Add(Me.ComboIPSelect)
         Me.Controls.Add(Me.PortBox)
         Me.Controls.Add(Me.IPBox)
         Me.Controls.Add(Me.Editor)
@@ -748,4 +774,5 @@ Partial Class Login
     Friend WithEvents Editor As MaterialSkin.Controls.MaterialButton
     Friend WithEvents IPBox As TextBox
     Friend WithEvents PortBox As TextBox
+    Friend WithEvents ComboIPSelect As MaterialSkin.Controls.MaterialComboBox
 End Class

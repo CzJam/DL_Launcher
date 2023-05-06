@@ -39,7 +39,7 @@ Module ProfileExecutor
         sb.Show(form)
     End Sub
 
-    Public Sub GetIpAddress()
+    Public Function GetIpAddress()
         Dim hostName As String = Dns.GetHostName()
         Dim ipList As New List(Of String)
         For Each ipAddress As IPAddress In Dns.GetHostEntry(hostName).AddressList
@@ -47,6 +47,6 @@ Module ProfileExecutor
                 ipList.Add(ipAddress.ToString())
             End If
         Next
-        IO.File.WriteAllText("ipconfig.txt", String.Join(",", ipList))
-    End Sub
+        Return ipList
+    End Function
 End Module

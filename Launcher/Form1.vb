@@ -6,7 +6,7 @@ Public Class Login
     Dim model(), characterName() As String
     Dim apiKey, chatVer, account, passwd, cookie, proxy, plusVer, mode, stream, chara, brainWash As String
     Dim ip, port As String
-    Dim apiKeyConfig, chatVerConfig, accountConfig, passwdConfig, cookieConfig, proxyConfig, plusVerConfig, modeConfig, actionBarText, streamConfig, showCommand, charaConfig, brainWashConfig, showLog As String
+    Dim apiKeyConfig, chatVerConfig, accountConfig, passwdConfig, ipConfig, cookieConfig, proxyConfig, plusVerConfig, modeConfig, actionBarText, streamConfig, showCommand, charaConfig, brainWashConfig, showLog As String
     Dim lastLine As String
     Dim configFile = Application.StartupPath & "/Config/config.ini"
     Dim modelFile = Application.StartupPath & "/Config/model.ini"
@@ -38,7 +38,13 @@ Public Class Login
         charaConfig = ReadConfig("uiconfig", "character", configFile)
         showLog = ReadConfig("uiconfig", "showlog", configFile)
         showCommand = ReadConfig("uiconfig", "showcommand", configFile)
-        GetIpAddress()
+        ComboIPSelect.Items.Clear()
+
+        For Each ii In GetIpAddress()
+            ComboIPSelect.Items.Add(ii)
+        Next ii
+        ComboIPSelect.SelectedIndex = 0
+        ip = " --ip " & ComboIPSelect.Text
         If showCommand = "True" Then
             Height = 700
         Else
@@ -296,6 +302,11 @@ Public Class Login
         End If
     End Sub
 
+    Private Sub ComboIPSelect_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboIPSelect.SelectedIndexChanged
+        ip = " --ip " & ComboIPSelect.Text
+        UpdateCommand()
+    End Sub
+
     Private Sub LaunchPH_Click(sender As Object, e As EventArgs)
     End Sub
 
@@ -462,10 +473,10 @@ Public Class Login
 
 
                     Dim ipData() = Split(logSpliter(UBound(logSpliter)), ":")
-                    ip = Replace(ipData(0), "Server is listening on", "")
+                    ip = ComboIPSelect.Text
                     port = Replace(ipData(1), "...", "")
                     Launch.Text = "重启服务器"
-                    TextStatus.Text = "服务器已启动！点击此处选择客户端"
+                    TextStatus.Text = "服务已启动。点击此处选择客户端"
                     'TextStatus.Text = "服务器已启动"
                     IPBox.Text = ip
                     PortBox.Text = Replace(port, vbCrLf, "")
@@ -635,7 +646,7 @@ Public Class Login
         End If
 
 
-        para.Text = "SocketServer.exe " & chatVer & apiKey & account & passwd & cookie & proxy & plusVer & brainWash & mode & stream & chara
+        para.Text = "SocketServer.exe " & chatVer & apiKey & account & ip & passwd & cookie & proxy & plusVer & brainWash & mode & stream & chara
         Log("Command update：" & para.Text)
 
     End Sub
